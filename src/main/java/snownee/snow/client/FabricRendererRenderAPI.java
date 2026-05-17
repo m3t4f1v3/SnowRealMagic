@@ -55,9 +55,13 @@ public class FabricRendererRenderAPI implements RenderAPI {
 				color = blockColors.getColor(state, world, pos, quad.colorIndex());
 				color |= 0xFF000000;
 			}
-			if (offset != Vec3.ZERO || color != -1) {
+			if (offset != Vec3.ZERO) {
 				for (int i = 0; i < 4; ++i) {
 					quad.pos(i, quad.x(i) + (float) offset.x, quad.y(i) + (float) offset.y, quad.z(i) + (float) offset.z);
+				}
+			}
+			if (color != -1) {
+				for (int i = 0; i < 4; ++i) {
 					quad.color(i, color);
 				}
 			}
