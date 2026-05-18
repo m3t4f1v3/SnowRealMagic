@@ -1,11 +1,27 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        maven { url "https://maven.architectury.dev/" }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:6.0.+'
+        classpath "org.spongepowered:mixin:${mixin_version}"
+        classpath 'org.spongepowered:mixingradle:0.7.38'
+    }
+}
+
 plugins {
     id("idea")
     id("maven-publish")
-    id("net.minecraftforge.gradle") version "[6.0,6.2)"
     id("java-library")
-    id("org.spongepowered.mixin") version "0.7-SNAPSHOT"
-    id("me.shedaniel.unified-publishing") version "0.1.+"
+    id "me.shedaniel.unified-publishing" version "0.1.+"
 }
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.spongepowered.mixin'
 
 version = "${minecraft_version}-Forge-${mod_version}"
 group = "${mod_base_package}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -183,6 +199,7 @@ dependencies {
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    compileOnly "org.spongepowered:mixin:${mixin_version}"
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
     //implementation fg.deobf("curse.maven:jei-238222:3944627")
