@@ -215,24 +215,13 @@ dependencies {
     runtimeOnly fg.deobf("maven.modrinth:terrablender:3.0.1.10-forge")
 
     runtimeOnly fg.deobf("curse.maven:domum-ornamentum-527361:7421161")
+    // Embeddium (native loader/transformer) for dev runs
+    runtimeOnly fg.deobf("maven.modrinth:embeddium:0.3.31+mc1.20.1")
 
     // 9.1.0.0
     implementation fg.deobf("curse.maven:serene-seasons-291874:5790653")
     implementation fg.deobf("curse.maven:glitchcore-955399:5787839")
     implementation fg.deobf("curse.maven:cloth-config-348521:4633444")
-    implementation(fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-api-base:0.4.32+ef105b4977"))
-    jarJar("dev.su5ed.sinytra.fabric-api:fabric-api-base:0.4.32+ef105b4977") {
-        jarJar.ranged(it, "[0.4.32,)")
-    }
-    implementation(fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-renderer-api-v1:3.2.2+cf68abbe77"))
-    jarJar("dev.su5ed.sinytra.fabric-api:fabric-renderer-api-v1:3.2.2+cf68abbe77") {
-        jarJar.ranged(it, "[3.2.2,)")
-    }
-    implementation(fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-renderer-indigo:1.5.3+b5b2da4177"))
-    jarJar("dev.su5ed.sinytra.fabric-api:fabric-renderer-indigo:1.5.3+b5b2da4177") {
-        jarJar.ranged(it, "[1.5.3,)")
-    }
-
     //implementation fg.deobf("curse.maven:terraforged-363820:3799083")
 
     // Examples using mod jars from ./libs
