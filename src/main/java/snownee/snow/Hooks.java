@@ -280,10 +280,10 @@ public final class Hooks {
 		layers = Mth.clamp(layers, 1, 8);
 		BlockState state = level.getBlockState(pos);
 		int originLayers = 0;
-		if (state.hasProperty(SnowLayerBlock.LAYERS)) {
+		if (state.hasProperty(SnowLayerBlock.LAYERS) && state.getBlock() instanceof SnowLayerBlock) {
 			originLayers = state.getValue(SnowLayerBlock.LAYERS);
 			level.setBlockAndUpdate(pos, state.setValue(SnowLayerBlock.LAYERS, Mth.clamp(originLayers + layers, 1, 8)));
-		} else if (state.hasProperty(SnowVariant.OPTIONAL_LAYERS)) {
+		} else if (state.hasProperty(SnowVariant.OPTIONAL_LAYERS) && state.getBlock() instanceof SnowVariant) {
 			originLayers = state.getValue(SnowVariant.OPTIONAL_LAYERS);
 			if (originLayers == 0 && !canSnowSurvive(state, level, pos)) {
 				return false;
