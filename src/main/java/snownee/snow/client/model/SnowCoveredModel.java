@@ -23,7 +23,6 @@ import net.minecraftforge.client.model.BakedModelWrapper;
 import net.minecraftforge.client.model.IQuadTransformer;
 import net.minecraftforge.client.model.QuadTransformers;
 import net.minecraftforge.client.model.data.ModelData;
-import java.util.concurrent.atomic.AtomicBoolean;
 import snownee.snow.CoreModule;
 import snownee.snow.block.SnowVariant;
 import snownee.snow.block.WatcherSnowVariant;
@@ -35,8 +34,6 @@ import snownee.snow.util.ClientProxy;
 public class SnowCoveredModel extends BakedModelWrapper<BakedModel> {
 
 	private static final ThreadLocal<RenderContext> CONTEXT = new ThreadLocal<>();
-
-	private static final AtomicBoolean DIAG_LOGGED = new AtomicBoolean(false);
 
 	public SnowCoveredModel(BakedModel model) {
 		super(model);
