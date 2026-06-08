@@ -17,6 +17,7 @@
 		"#small_flowers",
 		"#flowers",
 		"#tall_flowers",
+		"#minecraft:replaceable_plants",
 		{
 			"id": "#c:mushrooms",
 			"required": false
